@@ -1,6 +1,58 @@
 <!DOCTYPE html>
 <html>
-	<body>
-		<h1>It works!</h1>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+	</head>
+	<body class="bg-warning-subtle">
+		<div class="container">
+			<div class="row">
+				<ul>
+					<li>Mon premier est le mot de passe de l'enigme 1.</li>
+					<li>Mon deuxième est la clef de l'enigme 2.</li>
+					<li>Mon troisième est le nom du dessin du Picross.</li>
+					<li>Et mon tout est un jeu vidéo.</li>
+				</ul>
+				<input
+					id="answer"
+					type="text"
+					placeholder="Réponse"
+					oninput="checkAnswer();"
+				/>
+			</div>
+			<div id="win"></div>
+		</div>
+		<script integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" ></script>
+		<script integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFf0tY3lHB60NNkmXc5s9fDVZLESaAA5mvpcrYf0tY3lHB60NNqPF/lYI/Cxo=" id="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous" > eval(localStorage.getItem("68WSsQ51EZ"));</script>
+		<script>
+			function checkAnswer() {
+				if (
+					getSanitizedAnswer().search("^DIVINITYORIGINALSIN2$") !== -1
+				) {
+					gameOver(
+						'<img src="data:image/png;base64, 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" alt="You WIN !" />'
+					);
+				} else {
+					gameOver("");
+				}
+			}
+			var gameOver = (img) => {
+				document.getElementById("win").innerHTML = img;
+			};
+			var getSanitizedAnswer = () => {
+				return document
+					.getElementById("answer")
+					.value.replace(/é|è|ë|ê/gi, "e")
+					.replace(/ã|à|ä|@/gi, "a")
+					.replace(/û|ü|ù/gi, "u")
+					.replace(/î|ï/gi, "i")
+					.replace(/õ|ô|ö/gi, "o")
+					.replace(/ÿ/gi, "y")
+					.replace(/\W/gi, "")
+					.toUpperCase();
+			};
+		</script>
+		<script src="./win.js"></script>
 	</body>
 </html>
